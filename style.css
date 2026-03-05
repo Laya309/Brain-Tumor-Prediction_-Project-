@@ -1,0 +1,42 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("static/main1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .center-text {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .center-text h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 3rem;
+  }
+  

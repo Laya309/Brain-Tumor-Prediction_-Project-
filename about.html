@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Brain Cancer Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('{{ url_for("static", filename="im2.png") }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-4 text-white">
+    <h1 class="text-2xl font-bold">🧠 Brain Cancer Prediction</h1>
+    <div class="space-x-6 text-lg">
+      <a href="{{ url_for('home') }}" class="hover:underline">Home</a>
+      <a href="{{ url_for('about') }}" class="hover:underline">About</a>
+      <a href="{{ url_for('contact') }}" class="hover:underline">Contact</a>
+      {% if session.get('user') %}
+        <a href="{{ url_for('logout') }}" class="hover:underline">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="hover:underline">Login</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <div class="flex items-center justify-center h-[calc(100vh-80px)] px-4">
+    <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-3xl text-center">
+      <h2 class="text-4xl font-bold mb-4">About Our Project</h2>
+      <p class="text-white text-lg mb-6 leading-relaxed">
+        This project is a Deep Learning-based web application that helps in early detection of brain cancer using MRI scans.
+        By leveraging Convolutional Neural Networks (CNNs), the model can identify and classify different types of brain tumors such as 
+        <strong>glioma, meningioma, and pituitary</strong>, as well as detect normal (no tumor) scans.
+      </p>
+      <p class="text-white text-md leading-relaxed">
+        Our goal is to assist medical professionals and patients in getting a faster, more accurate preliminary diagnosis, which can lead to timely treatment and better outcomes. 
+        The system is designed to be easy-to-use, secure, and accessible to all.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

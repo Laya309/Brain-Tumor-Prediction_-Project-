@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Brain Cancer Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('{{ url_for("static", filename="main2.jpg") }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body class="text-white flex items-center justify-start pl-32">
+
+  <div class="bg-white bg-opacity-10 p-8 rounded-3xl shadow-2xl w-full max-w-md backdrop-blur-md">
+    <h2 class="text-3xl font-bold mb-6 text-center">Create an Account</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="mb-4 text-red-300 text-sm">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('register') }}" class="space-y-5">
+      <div>
+        <label for="email" class="block mb-1 text-sm">Email</label>
+        <input type="email" id="email" name="email" required
+          class="w-full px-4 py-2 rounded-xl bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+      </div>
+      <div>
+        <label for="password" class="block mb-1 text-sm">Password</label>
+        <input type="password" id="password" name="password" required
+          class="w-full px-4 py-2 rounded-xl bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition">
+        Register
+      </button>
+
+      <p class="text-center text-sm mt-4">
+        Already have an account?
+        <a href="{{ url_for('login') }}" class="underline text-blue-300 hover:text-blue-100">Login</a>
+      </p>
+    </form>
+  </div>
+
+</body>
+</html>
